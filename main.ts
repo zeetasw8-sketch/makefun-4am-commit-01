@@ -6,8 +6,7 @@ import { fileURLToPath } from "node:url";
 // Reads the single commit message from line.txt and writes it verbatim
 // to $MAKEFUN_OUTPUT_DIR/entry.txt (default /output), with no trailing
 // newline, so the sealed scorer sees exactly 1-200 characters.
-const repoRoot = dirname(fileURLToPath(import.meta.url));
-const destination = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const repoRoot = dirname(fileURLToPath(import.meta.url)), destination = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 
 const raw = readFileSync(join(repoRoot, "line.txt"), "utf8");
 const message = raw.replace(/\r?\n+$/, "").trim();
